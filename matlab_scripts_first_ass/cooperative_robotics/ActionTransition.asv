@@ -1,7 +1,0 @@
-function [A] = ActionTransition(taskname, previous, current, time)
-
-if (ismember(taskname, previous) && ismember(taskname, current))
-
-
-end
-
