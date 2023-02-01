@@ -51,6 +51,8 @@ pandaArm.ArmR.w_rho_Reeg = [];
 pandaArm.ArmR.w_dist_Reeg = [];
 pandaArm.ArmL.w_dist_Leeg1 = [];
 pandaArm.ArmR.w_dist_Reeg1 = [];
+pandaArm.ArmL.w_dist_Leeg2 = [];
+pandaArm.ArmR.w_dist_Reeg2 = [];
 
 % Jacobians matrices:
 pandaArm.ArmL.Jw_wt = [];
@@ -63,6 +65,7 @@ pandaArm.ArmL.Jw_o = [];
 pandaArm.ArmR.Jw_o = [];
 pandaArm.Jo = [];
 pandaArm.Jg1 = [];
+pandaArm.Jg2 = [];
 
 % Init Task Reference vectors
 pandaArm.xdot.jl = [];
@@ -79,6 +82,9 @@ pandaArm.xdot.kc = [];
 pandaArm.xdot.ArmL.rg1 = [];
 pandaArm.xdot.ArmR.rg1 = [];
 pandaArm.xdot.rg1 = [];
+pandaArm.xdot.ArmL.rg2 = [];
+pandaArm.xdot.ArmR.rg2 = [];
+pandaArm.xdot.rg2 = [];
 
 % Init Activation Functions
 pandaArm.A.tool = zeros(6,6);
@@ -91,6 +97,7 @@ pandaArm.ArmR.A.jl = [];
 pandaArm.A.jl = [];
 pandaArm.A.kc = [];
 pandaArm.A.rg1 = [];
+pandaArm.A.rg2 = [];
 
 % Activation function for activate or deactivate tasks
 pandaArm.Aa.tool = zeros(6,6);

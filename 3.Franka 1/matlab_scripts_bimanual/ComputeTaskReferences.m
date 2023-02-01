@@ -47,13 +47,25 @@ pandaArm.xdot.kc = zeros(6, 1);
 [w_rho_Leeg1 , w_dist_Leeg1] = CartError(pandaArm.ArmL.wTg1, pandaArm.ArmL.wTt);
 pandaArm.xdot.ArmL.rg1 = [0; 0; 0; 0.2 * (w_dist_Leeg1)];
 pandaArm.ArmL.w_dist_Leeg1 = w_dist_Leeg1;
-
+norm(w_dist_Leeg1)
 [w_rho_Reeg1 , w_dist_Reeg1] = CartError(pandaArm.ArmR.wTg1, pandaArm.ArmR.wTt);
 pandaArm.xdot.ArmR.rg1 = [0; 0; 0; 0.2 * (w_dist_Reeg1)];
 pandaArm.ArmR.w_dist_Reeg1 = w_dist_Reeg1;
-
+norm(w_dist_Reeg1)
 % Sum up al together:
 pandaArm.xdot.rg1 = [pandaArm.xdot.ArmL.rg1; pandaArm.xdot.ArmR.rg1];
+
+% Reaching goal2 task (orientation and position together)
+[w_rho_Leeg2 , w_dist_Leeg2] = CartError(pandaArm.ArmL.wTg2, pandaArm.ArmL.wTt);
+pandaArm.xdot.ArmL.rg2 = [0; 0; 0; 0.2 * (w_dist_Leeg2)];
+pandaArm.ArmL.w_dist_Leeg2 = w_dist_Leeg2;
+
+[w_rho_Reeg2 , w_dist_Reeg2] = CartError(pandaArm.ArmR.wTg2, pandaArm.ArmR.wTt);
+pandaArm.xdot.ArmR.rg2 = [0; 0; 0; 0.2 * (w_dist_Reeg2)];
+pandaArm.ArmR.w_dist_Reeg2 = w_dist_Reeg1;
+
+% Sum up al together:
+pandaArm.xdot.rg2 = [pandaArm.xdot.ArmL.rg2; pandaArm.xdot.ArmR.rg2];
 
 % Finish task
 pandaArm.xdot.f = zeros(12, 1);

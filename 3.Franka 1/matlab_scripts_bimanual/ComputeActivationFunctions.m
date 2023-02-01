@@ -5,12 +5,14 @@ function [pandaArm] = ComputeActivationFunctions(pandaArm,mission)
                 previous_tasks = mission.actions.reach_goal.tasks;
                 current_tasks = mission.actions.reach_goal.tasks;
 
-            case 2 % GRASP AND MOVE THE OBJECT
+            case 2 % GRASP AND MOVE THE OBJECT 1
                 previous_tasks = mission.actions.reach_goal.tasks;
-                current_tasks = mission.actions.grasping.tasks;
-
-            case 3 % STOP any motion 
-                previous_tasks = mission.actions.grasping.tasks;
+                current_tasks = mission.actions.grasping1.tasks;
+            case 3 % GRASP AND MOVE THE OBJECT 1
+                previous_tasks = mission.actions.grasping1.tasks;
+                current_tasks = mission.actions.grasping2.tasks;
+            case 4 % STOP any motion 
+                previous_tasks = mission.actions.grasping2.tasks;
                 current_tasks = mission.actions.finish.tasks;
         end
 
@@ -36,6 +38,9 @@ pandaArm.A.kc = eye(6) .* ActionTransition("KC", previous_tasks, current_tasks, 
 
 % Reaching Goal1 (orientation and position)
 pandaArm.A.rg1 = eye(12) .* ActionTransition("RG1", previous_tasks, current_tasks, mission.phase_time); 
+
+% Reaching Goal1 (orientation and position)
+pandaArm.A.rg2 = eye(12) .* ActionTransition("RG2", previous_tasks, current_tasks, mission.phase_time); 
 
 % finish task
 pandaArm.A.f = eye(12) .* ActionTransition("F", previous_tasks, current_tasks, mission.phase_time); 

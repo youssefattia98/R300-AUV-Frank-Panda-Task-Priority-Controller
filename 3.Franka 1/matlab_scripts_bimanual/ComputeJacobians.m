@@ -60,6 +60,9 @@ pandaArm.Jo = [pandaArm.ArmL.Jw_o, -pandaArm.ArmR.Jw_o];
 % Reaching goal1 jacobian
 pandaArm.Jg1 = [[zeros(3, 7); pandaArm.ArmL.Jw_wt(4:6, :)] zeros(6, 7); zeros(6, 7) [zeros(3, 7); pandaArm.ArmR.Jw_wt(4:6, :)]];
 
+% Reaching goal1 jacobian
+pandaArm.Jg2 = [[zeros(3, 7); pandaArm.ArmL.Jw_wt(4:6, :)] zeros(6, 7); zeros(6, 7) [zeros(3, 7); pandaArm.ArmR.Jw_wt(4:6, :)]];
+
 % finish jacobian
 pandaArm.Jf = pandaArm.Jt;
 

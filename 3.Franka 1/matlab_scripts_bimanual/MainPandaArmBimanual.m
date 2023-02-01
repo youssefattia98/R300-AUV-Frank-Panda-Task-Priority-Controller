@@ -39,8 +39,11 @@ pandaArmBimanual.ArmR.wTg = [rotation(0, pi, 0) [0.55; 0; 0.59]; 0 0 0 1];
 % Second goal move the object
 pandaArmBimanual.ArmL.tTo = [rotation(pi, 0, 0) [0.05; 0; 0]; 0 0 0 1];
 pandaArmBimanual.ArmR.tTo = [rotation(0, pi, 0) [0.05; 0; 0]; 0 0 0 1];
-pandaArmBimanual.ArmL.wTg1 = [1 0 0 0.5; 0 1 0 -0.5; 0 0 1 0.5; 0 0 0 1];
-pandaArmBimanual.ArmR.wTg1 = [1 0 0 0.5; 0 1 0 -0.5; 0 0 1 0.5; 0 0 0 1];
+pandaArmBimanual.ArmL.wTg1 = [1 0 0 0.5; 0 1 0 -0.2; 0 0 1 0.5; 0 0 0 1];
+pandaArmBimanual.ArmR.wTg1 = [1 0 0 0.5; 0 1 0 -0.2; 0 0 1 0.5; 0 0 0 1];
+% third goal move to another point
+pandaArmBimanual.ArmL.wTg2 = [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1];
+pandaArmBimanual.ArmR.wTg2 = [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1];
 
 %% Scheduler
 mission.prev_action = "reach_goal";
@@ -48,7 +51,8 @@ mission.current_action = "reach_goal";
 mission.phase = 1;
 mission.phase_time = 0;
 mission.actions.reach_goal.tasks = ["JL", "RG"];
-mission.actions.grasping.tasks = ["KC", "JL", "RG1"];
+mission.actions.grasping1.tasks = ["KC", "JL", "RG1"];
+mission.actions.grasping2.tasks = ["KC", "JL", "RG2"];
 mission.actions.finish.tasks = ["KC", "JL", "F"];
 
 %% CONTROL LOOP
@@ -73,6 +77,7 @@ for t = 0:deltat:end_time
     [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.kc,     pandaArmBimanual.Jo,    Qp, ydotbar, pandaArmBimanual.xdot.kc,  0.0001,   0.01, 10); % kinematic constraint
     [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.jl,     pandaArmBimanual.Jjl,    Qp, ydotbar, pandaArmBimanual.xdot.jl,  0.0001,   0.01, 10); % joint limit
     [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.f,     pandaArmBimanual.Jf,    Qp, ydotbar, pandaArmBimanual.xdot.f,  0.0001,   0.01, 10); % finish task
+    [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.rg2,     pandaArmBimanual.Jg2,    Qp, ydotbar, pandaArmBimanual.xdot.rg2,  0.0001,   0.01, 10); % reaching goal 2 (orientation and position)
     [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.rg1,     pandaArmBimanual.Jg1,    Qp, ydotbar, pandaArmBimanual.xdot.rg1,  0.0001,   0.01, 10); % reaching goal 1 (orientation and position)
     [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.rg,     pandaArmBimanual.Jt,    Qp, ydotbar, pandaArmBimanual.xdot.rg,  0.0001,   0.01, 10); % reaching goal (orientation and position)
     [Qp, ydotbar] = iCAT_task(eye(14),     eye(14),    Qp, ydotbar, zeros(14,1),  0.0001,   0.01, 10);    % this task should be the last one
