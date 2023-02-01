@@ -46,7 +46,7 @@ v_kw = uvms.vTw(1:3,1:3) * w_kw; % evaluate the projection of the k-unit vector 
 v_rp = v_r - v_kw * dot(v_kw, v_r); % evaluate the projection of the distance between the vehicle and the rock on the horizontal plane 
 v_rho_r = ReducedVersorLemma(v_iv, v_rp); % evaluate the misalignment between the projection of the distance on the horizontal plane and the x-axis of the vehicle
 % 0.01, 0.2, 0.8
-uvms.xdot.v_hr = 0.01 * (-v_rho_r); % compute the task reference
+uvms.xdot.v_hr = 0.2 * (-v_rho_r); % compute the task reference
 uvms.v_rho_r = v_rho_r;
 
 % reference for the distance to rock task:
