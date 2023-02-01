@@ -1,0 +1,28 @@
+function [plt] = InitDataPlot( maxloops)
+    plt.t = zeros(1, maxloops);
+    plt.q = zeros(7, maxloops);
+    plt.q_dot = zeros(7, maxloops);
+
+    plt.p = zeros(6, maxloops);
+    plt.p_dot = zeros(6, maxloops);
+
+    plt.xdot_jl = zeros(7, maxloops);
+    plt.xdot_mu = zeros(1, maxloops);
+    plt.xdot_t = zeros(6, maxloops);
+
+    plt.a = zeros(11, maxloops);
+    
+    plt.v_misal = zeros(3, maxloops);
+    plt.v_distance = zeros(3, maxloops);
+    plt.Horizontal = zeros(3, maxloops);
+    plt.altitude = zeros(1, maxloops);
+    plt.Headingtorock = zeros(3, maxloops);
+    plt.Distancetorock = zeros(1, maxloops);
+    plt.Distancetorockee = zeros(1, maxloops);
+    plt.Headingtorockee = zeros(3, maxloops);
+    plt.mu = zeros(1, maxloops);
+    plt.action_transition_time = zeros(1,2);
+
+
+end
+
