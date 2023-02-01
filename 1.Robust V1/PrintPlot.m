@@ -1,5 +1,5 @@
 function [ ] = PrintPlot( plt )
-x=plt.action_transition_time
+x=plt.action_transition_time;
 % %Vehicle position and velocity (p and v)
 % figure(1);
 % subplot(2,1,1);
@@ -110,15 +110,15 @@ x=plt.action_transition_time
 %     vline(plt.action_transition_time(i),'r');
 % end
 % hold off;
-
-
-
+% 
+% 
+% 
 %Landing: Vehicle distance and misalignment to nodule (d and p)
 figure(5)
 % subplot(2,1,1);
 % hplot = plot(plt.t, plt.Distancetorock);
 % set(hplot, 'LineWidth', 2);
-% title('Landing: Vehicle Distance To Nodule [m]');
+% title('Landing: Vehicle Distance To Nodule [m] , gain = 0.01');
 % xlabel('time [s]');
 % ylabel('Landing: Vehicle Distance To Nodule [m]');
 % hold on;
@@ -129,7 +129,8 @@ figure(5)
 % subplot(2,1,2);
 hplot = plot(plt.t, plt.Headingtorock);
 set(hplot, 'LineWidth', 2);
-title('Landing: Vehicle misalignment With Nodule[rad] , gain = 0.8');
+title('Landing: Vehicle misalignment With Nodule[rad] , gain = 0.01');
+%title('Landing: Vehicle misalignment With Nodule[rad]');
 xlabel('time [s]');
 ylabel('Landing: Vehicle misalignment With Nodule [rad]');
 legend('thetax', 'thetay', 'thetaz');
@@ -138,8 +139,8 @@ for i = 1:2
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-
-
+% 
+% 
 % %Inspection: Arm distance and misalignment to nodule (d and p)
 % figure(6)
 % subplot(2,1,1);
@@ -165,5 +166,5 @@ hold off;
 %     vline(plt.action_transition_time(i),'r');
 % end
 % hold off;
-% end
+end
 
