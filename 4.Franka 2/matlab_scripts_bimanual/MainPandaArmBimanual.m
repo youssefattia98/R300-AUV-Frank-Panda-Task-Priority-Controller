@@ -39,8 +39,10 @@ pandaArmBimanual.ArmR.wTg = [rotation(0, pi, 0) [0.55; 0; 0.59]; 0 0 0 1];
 % Second goal move the object
 pandaArmBimanual.ArmL.tTo = [rotation(pi, 0, 0) [0.05; 0; 0]; 0 0 0 1];
 pandaArmBimanual.ArmR.tTo = [rotation(0, pi, 0) [0.05; 0; 0]; 0 0 0 1];
-pandaArmBimanual.ArmL.wTg1 = [1 0 0 0.5; 0 1 0 -0.5; 0 0 1 0.5; 0 0 0 1];
-pandaArmBimanual.ArmR.wTg1 = [1 0 0 0.5; 0 1 0 -0.5; 0 0 1 0.5; 0 0 0 1];
+pandaArmBimanual.ArmL.wTg1 = [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1];
+pandaArmBimanual.ArmR.wTg1 = [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1];
+%pandaArmBimanual.ArmL.wTg1 = [1 0 0 0.5; 0 1 0 -0.5; 0 0 1 0.5; 0 0 0 1];
+%pandaArmBimanual.ArmR.wTg1 = [1 0 0 0.5; 0 1 0 -0.5; 0 0 1 0.5; 0 0 0 1];
 
 %% Scheduler
 mission.prev_action = "reach_goal";

@@ -30,7 +30,6 @@ end
 pandaArm.ArmL.A.jl = pandaArm.ArmL.A.jl .* ActionTransition("JLL", previous_tasks, current_tasks, mission.phase_time);
 pandaArm.ArmR.A.jl = pandaArm.ArmR.A.jl .* ActionTransition("JLR", previous_tasks, current_tasks, mission.phase_time);
 
-
 % Reaching Goal1 (orientation and position)
 pandaArm.ArmL.A.rg1 = eye(6) .* ActionTransition("RG1L", previous_tasks, current_tasks, mission.phase_time);
 pandaArm.ArmR.A.rg1 = eye(6) .* ActionTransition("RG1R", previous_tasks, current_tasks, mission.phase_time);
