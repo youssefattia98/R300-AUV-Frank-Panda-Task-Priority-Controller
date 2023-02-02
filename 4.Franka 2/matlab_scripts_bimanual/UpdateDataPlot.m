@@ -24,5 +24,19 @@ plt.distLrg1(:, loop) = norm(pandaArm.ArmL.w_dist_Leeg1);
 plt.distRrg1(:, loop) = norm(pandaArm.ArmR.w_dist_Reeg1);
 plt.ajlL(:, loop) = diag(pandaArm.ArmL.A.jl);
 plt.ajlR(:, loop) = diag(pandaArm.ArmR.A.jl);
+% Cooperative velocities
+plt.LCoopAng(:, loop) = pandaArm.ArmL.x_dot.coop(1:3,:);
+plt.LCoopLin(:, loop) = pandaArm.ArmL.x_dot.coop(4:6,:);
+plt.RCoopAng(:, loop) = pandaArm.ArmR.x_dot.coop(1:3,:);
+plt.RCoopLin(:, loop) = pandaArm.ArmR.x_dot.coop(4:6,:) ;
+% Non-Cooperative velocities
+plt.LNonCoopAng(:, loop) = pandaArm.ArmL.x_dot.mu(1:3,:);
+plt.LNonCoopLin(:, loop) = pandaArm.ArmL.x_dot.mu(4:6,:);
+plt.RNonCoopAng(:, loop) = pandaArm.ArmR.x_dot.mu(1:3,:);
+plt.RNonCoopLin(:, loop) = pandaArm.ArmR.x_dot.mu(4:6,:);
 
+plt.action_transition_time =pandaArm.ta;
+
+plt.w_dist_Leeg2(:, loop)=norm(pandaArm.ArmL.w_dist_Leeg2);
+plt.w_dist_Reeg2(:, loop)=norm(pandaArm.ArmR.w_dist_Reeg2);
 end

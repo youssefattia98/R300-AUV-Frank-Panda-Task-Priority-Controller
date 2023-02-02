@@ -52,7 +52,7 @@ mission.phase_time = 0;
 mission.actions.reach_goal.tasks = ["JLL", "JLR", "RGL", "RGR"];
 mission.actions.grasping1.tasks = ["JLL", "JLR", "RG1L", "RG1R"];
 mission.actions.grasping2.tasks = ["JLL", "JLR", "RG2L", "RG2R"];
-mission.actions.finish.tasks = ["F"];
+mission.actions.finish.tasks = ["F", "JLL", "JLR"];
 
 %% CONTROL LOOP
 
@@ -110,6 +110,8 @@ for t = 0:deltat:end_time
     [QpR, ydotbarR] = iCAT_task(pandaArmBimanual.ArmR.A.rg,     pandaArmBimanual.ArmR.Jw_wt,    QpR, ydotbarR, pandaArmBimanual.xdot.ArmR.rg,  0.0001,   0.01, 10); % reaching goal (orientation and position)
     [QpR, ydotbarR] = iCAT_task(eye(7),     eye(7),    QpR, ydotbarR, zeros(7,1),  0.0001,   0.01, 10);    % this task should be the last one
     
+    pandaArmBimanual.ArmL.x_dot.coop = pandaArmBimanual.ArmL.Jw_o * ydotbarL;
+    pandaArmBimanual.ArmR.x_dot.coop = pandaArmBimanual.ArmR.Jw_o * ydotbarR;
 
     % get the two variables for integration
     pandaArmBimanual.ArmL.q_dot = ydotbarL;
@@ -129,6 +131,7 @@ for t = 0:deltat:end_time
     % add debug prints here
     if (mod(t,0.1) == 0)
         t 
+        pandaArmBimanual.t = t;
         phase = mission.phase
     end
     
