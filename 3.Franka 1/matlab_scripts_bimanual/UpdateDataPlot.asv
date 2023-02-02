@@ -31,18 +31,18 @@ if mission.phase == 1
     plt.LDesLin(:, loop) = pandaArm.xdot.ArmL.rg1(4:6, :)';
 elseif mission.phase == 2
     plt.RDesAng(:, loop) = [0 0 0]';
-    plt.RDesLin(:, loop) = pandaArm.xdot.ArmR.rg2(4:6, :)';
-    plt.LDesAng(:, loop) = [0 0 0]';
-    plt.LDesLin(:, loop) = pandaArm.xdot.ArmL.rg2(4:6, :)';
+    plt.RDesLin = pandaArm.xdot.ArmR.rg2(4:6, :)';
+    plt.LDesAng = [0 0 0]';
+    plt.LDesLin = pandaArm.xdot.ArmL.rg2(4:6, :)';
 else
-    plt.RDesAng(:, loop) = [0 0 0]';
-    plt.RDesLin(:, loop) = [0 0 0]';
-    plt.LDesAng(:, loop) = [0 0 0]';
-    plt.LDesLin(:, loop) = [0 0 0]';
+    plt.RDesAng = [0 0 0]';
+    plt.RDesLin = [0 0 0]';
+    plt.LDesAng = [0 0 0]';
+    plt.LDesLin = [0 0 0]';
 end
-plt.RActAng(:, loop) = pandaArm.xdot.ArmL.actual(1:3, :);
-plt.RActLin(:, loop) = pandaArm.xdot.ArmR.actual(4:6, :);
-plt.LActAng(:, loop) = pandaArm.xdot.ArmL.actual(1:3, :);
-plt.LActlin(:, loop) = pandaArm.xdot.ArmL.actual(4:6, :);
+plt.RActAng = pandaArm.xdot.ArmL.actual(1:3, :);
+plt.RActLin = pandaArm.xdot.ArmR.actual(4:6, :);
+plt.LActAng = pandaArm.xdot.ArmL.actual(1:3, :);
+plt.LActlin = pandaArm.xdot.ArmL.actual(4:6, :);
 
 end

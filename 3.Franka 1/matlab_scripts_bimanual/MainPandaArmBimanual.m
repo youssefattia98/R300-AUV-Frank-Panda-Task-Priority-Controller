@@ -82,6 +82,9 @@ for t = 0:deltat:end_time
     [Qp, ydotbar] = iCAT_task(pandaArmBimanual.A.rg,     pandaArmBimanual.Jt,    Qp, ydotbar, pandaArmBimanual.xdot.rg,  0.0001,   0.01, 10); % reaching goal (orientation and position)
     [Qp, ydotbar] = iCAT_task(eye(14),     eye(14),    Qp, ydotbar, zeros(14,1),  0.0001,   0.01, 10);    % this task should be the last one
     
+    pandaArmBimanual.xdot.actual = pandaArmBimanual.Jg1 * ydotbar;
+    pandaArmBimanual.xdot.ArmL.actual = pandaArmBimanual.xdot.actual(1:6, :);
+    pandaArmBimanual.xdot.ArmR.actual =  pandaArmBimanual.xdot.actual(7:12, :);
     % get the two variables for integration
     pandaArmBimanual.ArmL.q_dot = ydotbar(1:7);
     pandaArmBimanual.ArmR.q_dot = ydotbar(8:14);
@@ -108,7 +111,7 @@ for t = 0:deltat:end_time
     % enable this to have the simulation approximately evolving like real
     % time. Remove to go as fast as possible
     % WARNING: MUST BE ENABLED IF CONTROLLING REAL ROBOT !
-    SlowdownToRealtime(deltat);
+    %SlowdownToRealtime(deltat);
     
 end
 PrintPlot(plt, pandaArmBimanual);

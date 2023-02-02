@@ -15,5 +15,15 @@ function [plt] = InitDataPlot( maxloops)
     plt.distRrg1 = zeros(1, maxloops);
     plt.ajlL = zeros(7, maxloops);
     plt.ajlR = zeros(7, maxloops);
+    %LAST PLOT
+    plt.RDesAng = zeros(3, maxloops);
+    plt.RDesLin = zeros(3, maxloops);
+    plt.LDesAng = zeros(3, maxloops);
+    plt.LDesLin = zeros(3, maxloops);
+    plt.RActAng = zeros(3, maxloops);
+    plt.RActLin = zeros(3, maxloops);
+    plt.LActAng = zeros(3, maxloops);
+    plt.LActlin = zeros(3, maxloops);
+
 end
 

@@ -1,5 +1,5 @@
 function [ ] = PrintPlot( plt, pandaArm )
-x = plt.action_transition_time
+Acrions_Transtion_time = plt.action_transition_time
 %left & right arm configuration + left & right arm joint velocities
 figure(1);
 subplot(4,1,1);
@@ -139,6 +139,109 @@ title('RIGHT ARM joint limit activation function [-]')
 xlabel('time [s]');
 ylabel('[-]');
 set(hplot, 'LineWidth', 1);
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+
+
+%Left arm desired and actual linear and angular velocity
+figure(4);
+subplot(4,2,1)
+hplot = plot(plt.t, plt.LDesLin);
+title('LEFT ARM desired Linear Velocity [m/s]')
+xlabel('time [s]');
+ylabel('Linear Velocity [m/sec]');
+set(hplot, 'LineWidth', 1);
+legend('Vx','Vy','Vz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,2,3)
+hplot = plot(plt.t, plt.LActlin);
+title('LEFT ARM actual Linear Velocity [m/s]')
+xlabel('time [s]');
+ylabel('Linear Velocity [m/sec]');
+set(hplot, 'LineWidth', 1);
+legend('Vx','Vy','Vz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,2,5)
+hplot = plot(plt.t, plt.LDesAng);
+title('LEFT ARM desired Angular Velocity [rad/s]')
+xlabel('time [s]');
+ylabel('Angular Velocity [rad/sec]');
+set(hplot, 'LineWidth', 1);
+legend('Wx','Wy','Wz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,2,7)
+hplot = plot(plt.t, plt.LActAng);
+title('LEFT ARM actual Angular Velocity [m/s]')
+xlabel('time [s]');
+ylabel('Angular Velocity [rad/sec]');
+set(hplot, 'LineWidth', 1);
+legend('Wx','Wy','Wz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+
+%right arm desired and actual linear and angular velocity
+
+subplot(4,2,2)
+hplot = plot(plt.t, plt.RDesLin);
+title('Right ARM desired Linear Velocity [m/s]')
+xlabel('time [s]');
+ylabel('Linear Velocity [m/sec]');
+set(hplot, 'LineWidth', 1);
+legend('Vx','Vy','Vz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,2,4)
+hplot = plot(plt.t, plt.RActLin);
+title('Righ ARM actual Linear Velocity [m/s]')
+xlabel('time [s]');
+ylabel('Linear Velocity [m/sec]');
+set(hplot, 'LineWidth', 1);
+legend('Vx','Vy','Vz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,2,6)
+hplot = plot(plt.t, plt.RDesAng);
+title('Right ARM desired Angular Velocity [rad/s]')
+xlabel('time [s]');
+ylabel('Angular Velocity [rad/s]');
+set(hplot, 'LineWidth', 1);
+legend('Wx','Wy','Wz');
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,2,8)
+hplot = plot(plt.t, plt.RActAng);
+title('Right ARM actual Angular Velocity [m/s]')
+xlabel('time [s]');
+ylabel('Angular Velocity [rad/s]');
+set(hplot, 'LineWidth', 1);
+legend('Wx','Wy','Wz');
 hold on;
 for i = 1:3
     vline(plt.action_transition_time(i),'r');
