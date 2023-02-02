@@ -99,8 +99,10 @@ for t = 0:deltat:end_time
     loop = loop + 1;
     % add debug prints here
     if (mod(t,0.1) == 0)
-        t 
+        t
+        pandaArmBimanual.t = t;
         phase = mission.phase
+        
     end
     
     % enable this to have the simulation approximately evolving like real

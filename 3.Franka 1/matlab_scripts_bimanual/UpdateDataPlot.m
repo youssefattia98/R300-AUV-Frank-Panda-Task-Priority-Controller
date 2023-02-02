@@ -22,5 +22,6 @@ plt.distLrg1(:, loop) = norm(pandaArm.ArmL.w_dist_Leeg1);
 plt.distRrg1(:, loop) = norm(pandaArm.ArmR.w_dist_Reeg1);
 plt.ajlL(:, loop) = diag(pandaArm.A.jl(1:7, 1:7));
 plt.ajlR(:, loop) = diag(pandaArm.A.jl(8:14, 8:14));
+plt.action_transition_time =pandaArm.ta;
 
 end

@@ -103,6 +103,10 @@ pandaArm.A.rg2 = [];
 pandaArm.Aa.tool = zeros(6,6);
 pandaArm.Aa.jl = zeros(14,14);
 
+%Save the transtion time
+pandaArm.t = 0;
+pandaArm.ta = zeros(1,3);
+
 
 
 end
