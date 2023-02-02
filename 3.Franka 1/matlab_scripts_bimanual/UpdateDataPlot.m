@@ -20,16 +20,18 @@ plt.distLrg(:, loop) = norm(pandaArm.ArmL.w_dist_Leeg);
 plt.distRrg(:, loop) = norm(pandaArm.ArmR.w_dist_Reeg);
 plt.distLrg1(:, loop) = norm(pandaArm.ArmL.w_dist_Leeg1);
 plt.distRrg1(:, loop) = norm(pandaArm.ArmR.w_dist_Reeg1);
+plt.distLrg2(:, loop) = norm(pandaArm.ArmL.w_dist_Leeg2);
+plt.distRrg2(:, loop) = norm(pandaArm.ArmR.w_dist_Reeg2);
 plt.ajlL(:, loop) = diag(pandaArm.A.jl(1:7, 1:7));
 plt.ajlR(:, loop) = diag(pandaArm.A.jl(8:14, 8:14));
 plt.action_transition_time =pandaArm.ta;
 
-if mission.phase == 1
+if mission.phase == 2
     plt.RDesAng(:, loop) = [0 0 0]';
     plt.RDesLin(:, loop) = pandaArm.xdot.ArmR.rg1(4:6, :)';
     plt.LDesAng(:, loop) = [0 0 0]';
     plt.LDesLin(:, loop) = pandaArm.xdot.ArmL.rg1(4:6, :)';
-elseif mission.phase == 2
+elseif mission.phase == 3
     plt.RDesAng(:, loop) = [0 0 0]';
     plt.RDesLin(:, loop) = pandaArm.xdot.ArmR.rg2(4:6, :)';
     plt.LDesAng(:, loop) = [0 0 0]';

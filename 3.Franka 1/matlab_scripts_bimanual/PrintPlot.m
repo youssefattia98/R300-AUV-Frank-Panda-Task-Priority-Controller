@@ -101,7 +101,7 @@ hold off;
 %L&R distance to second goal + L&R Joint lmits tasks actvation
 figure(3);
 subplot(4,1,1)
-hplot = plot(plt.t, plt.distLrg1);
+hplot = plot(plt.t, plt.distLrg2);
 title('LEFT ARM distance to second goal [m]')
 xlabel('time [s]');
 ylabel('distance [m]');
@@ -112,7 +112,7 @@ for i = 1:3
 end
 hold off;
 subplot(4,1,2)
-hplot = plot(plt.t, plt.distRrg1);
+hplot = plot(plt.t, plt.distRrg2);
 title('RIGHT ARM distance to second goal [m]')
 xlabel('time [s]');
 ylabel('distance [m]');

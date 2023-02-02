@@ -13,6 +13,8 @@ function [plt] = InitDataPlot( maxloops)
     plt.distRrg = zeros(1, maxloops);
     plt.distLrg1 = zeros(1, maxloops);
     plt.distRrg1 = zeros(1, maxloops);
+    plt.distLrg2 = zeros(1, maxloops);
+    plt.distRrg2 = zeros(1, maxloops);
     plt.ajlL = zeros(7, maxloops);
     plt.ajlR = zeros(7, maxloops);
     %LAST PLOT
