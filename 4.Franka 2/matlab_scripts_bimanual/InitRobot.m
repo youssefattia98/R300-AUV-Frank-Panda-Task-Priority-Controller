@@ -100,6 +100,8 @@ pandaArm.xdot.ArmL.rg2 = [];
 pandaArm.xdot.ArmR.rg2 = [];
 pandaArm.ArmL.xdot.f = [];
 pandaArm.ArmR.xdot.f = [];
+pandaArm.ArmL.x_dot.coop = [];
+pandaArm.ArmR.x_dot.coop = [];
 
 % Init Activation Functions
 pandaArm.A.tool = zeros(6,6);
@@ -123,6 +125,9 @@ pandaArm.ArmR.A.f = [];
 pandaArm.Aa.tool = zeros(6,6);
 pandaArm.Aa.jl = zeros(14,14);
 
+%Save the transtion time
+pandaArm.t = 0;
+pandaArm.ta = zeros(1,3);
 
 
 end
