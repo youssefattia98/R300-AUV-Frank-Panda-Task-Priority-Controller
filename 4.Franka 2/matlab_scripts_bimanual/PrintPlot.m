@@ -178,7 +178,7 @@ end
 hold off;
 
 figure(7);
-subplot(2,1,1)
+subplot(4,1,1)
 hplot = plot(plt.t, plt.ajlL);
 title('LEFT ARM joint limit activation function [-]')
 xlabel('time [s]');
@@ -189,7 +189,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(2,1,2)
+subplot(4,1,2)
 hplot = plot(plt.t, plt.ajlR);
 title('RIGHT ARM joint limit activation function [-]')
 xlabel('time [s]');
@@ -200,10 +200,32 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
+subplot(4,1,3)
+hplot = plot(plt.t, plt.w_dist_Leeg2);
+title('LEFT ARM distance to third goal [m]')
+xlabel('time [s]');
+ylabel('distance [m]');
+set(hplot, 'LineWidth', 1);
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
+subplot(4,1,4)
+hplot = plot(plt.t, plt.w_dist_Reeg2);
+title('RIGHT ARM distance to third goal [m]')
+xlabel('time [s]');
+ylabel('distance [m]');
+set(hplot, 'LineWidth', 1);
+hold on;
+for i = 1:3
+    vline(plt.action_transition_time(i),'r');
+end
+hold off;
 
 % Cooperative velocities for the right and left arms
 figure(8);
-subplot(4,1,1)
+subplot(4,2,1)
 hplot = plot(plt.t, plt.LCoopAng);
 title('LEFT ARM angular velocity in cooperative hierarchy[rad/s]')
 xlabel('time [s]');
@@ -215,7 +237,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(4,1,2)
+subplot(4,2,2)
 hplot = plot(plt.t, plt.LCoopLin);
 title('LEFT ARM linear velocity in cooperative hierarchy[m/s]')
 xlabel('time [s]');
@@ -227,7 +249,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(4,1,3)
+subplot(4,2,3)
 hplot = plot(plt.t, plt.LNonCoopAng);
 title('LEFT ARM angular velocity in Non-cooperative hierarchy[rad/s]')
 xlabel('time [s]');
@@ -239,7 +261,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(4,1,4)
+subplot(4,2,4)
 hplot = plot(plt.t, plt.LNonCoopLin);
 title('LEFT ARM linear velocity in Non-cooperative hierarchy[m/s]')
 xlabel('time [s]');
@@ -252,8 +274,7 @@ for i = 1:3
 end
 hold off;
 % Non-Cooperative velocities for the right and left arms
-figure(9);
-subplot(4,1,1)
+subplot(4,2,5)
 hplot = plot(plt.t, plt.RCoopAng);
 title('RIGHT ARM angular velocity in cooperative hierarchy[rad/s]')
 xlabel('time [s]');
@@ -265,7 +286,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(4,1,2)
+subplot(4,2,6)
 hplot = plot(plt.t, plt.RCoopLin);
 title('RIGHT ARM linear velocity in cooperative hierarchy[m/s]')
 xlabel('time [s]');
@@ -277,7 +298,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(4,1,3)
+subplot(4,2,7)
 hplot = plot(plt.t, plt.RNonCoopAng);
 title('RIGHT ARM angular velocity in Non-cooperative hierarchy[rad/s]')
 xlabel('time [s]');
@@ -289,7 +310,7 @@ for i = 1:3
     vline(plt.action_transition_time(i),'r');
 end
 hold off;
-subplot(4,1,4)
+subplot(4,2,8)
 hplot = plot(plt.t, plt.RNonCoopLin);
 title('RIGHT ARM linear velocity in Non-cooperative hierarchy[m/s]')
 xlabel('time [s]');
