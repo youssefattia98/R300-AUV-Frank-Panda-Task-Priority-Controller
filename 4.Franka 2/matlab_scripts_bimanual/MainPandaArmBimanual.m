@@ -52,7 +52,7 @@ mission.phase_time = 0;
 mission.actions.reach_goal.tasks = ["JLL", "JLR", "RGL", "RGR"];
 mission.actions.grasping1.tasks = ["JLL", "JLR", "RG1L", "RG1R"];
 mission.actions.grasping2.tasks = ["JLL", "JLR", "RG2L", "RG2R"];
-mission.actions.finish.tasks = ["F"];
+mission.actions.finish.tasks = ["F", "JLL", "JLR"];
 
 %% CONTROL LOOP
 

@@ -25,6 +25,8 @@ function [plt] = InitDataPlot( maxloops)
     plt.RNonCoopLin = zeros(3,maxloops);
     plt.LNonCoopAng = zeros(3,maxloops);
     plt.LNonCoopLin = zeros(3,maxloops);
+    plt.w_dist_Leeg2 = zeros(1,maxloops);
+    plt.w_dist_Reeg2 = zeros(1,maxloops);
 
 end
 

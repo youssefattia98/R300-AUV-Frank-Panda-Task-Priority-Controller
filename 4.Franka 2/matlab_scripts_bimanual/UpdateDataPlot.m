@@ -37,5 +37,6 @@ plt.RNonCoopLin(:, loop) = pandaArm.ArmR.x_dot.mu(4:6,:);
 
 plt.action_transition_time =pandaArm.ta;
 
-
+plt.w_dist_Leeg2(:, loop)=norm(pandaArm.ArmL.w_dist_Leeg2);
+plt.w_dist_Reeg2(:, loop)=norm(pandaArm.ArmR.w_dist_Reeg2);
 end
